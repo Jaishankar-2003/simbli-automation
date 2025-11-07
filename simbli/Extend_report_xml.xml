@@ -3,12 +3,12 @@
 <suite name="Suite">
 
     <listeners>
-        <listener class-name="dsi_test_regression.Extend_report"/>
+        <listener class-name="Extend_report"/>
     </listeners>
 
     <test thread-count="5" name="Test">
         <classes>
-            <class name="dsi_test_regression.dsi_home_test"/>
+            <class name="simbli_home_test"/>
         </classes>
     </test>
 </suite>

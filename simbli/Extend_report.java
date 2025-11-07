@@ -1,4 +1,4 @@
-package dsi_test_regression;
+
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -18,7 +18,7 @@ public class Extend_report implements ITestListener
 
     public void onStart (ITestContext context)
     {
-        String path = System.getProperty("user.dir") + "/target/ExtentReport.html";
+        String path = System.getProperty("user.dir") + "/ExtentReport.html";
 
         sparkReporter = new ExtentSparkReporter(path);
 
