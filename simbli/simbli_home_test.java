@@ -38,9 +38,6 @@ public class simbli_home_test
     }
 
 
-
-
-
     @AfterClass
     void terminate()
     {

@@ -51,7 +51,7 @@ public class simbli_home_page
         @FindBy(xpath = "//p[normalize-space()='Talented Minds Bringing Ideas to Life.']") WebElement team_text_v4;
 
        // @FindBy(xpath = "(//div[@class='row justify-content-center'])[2]//div[@class='col-lg-3 col-md-6 mb-4 aos-init aos-animate']") WebElement
-       List<WebElement> team_img = driver.findElements(By.xpath("(//div[@class='team-member-card'])"));
+
 
         public void aboutpanel() throws InterruptedException
         {
@@ -99,6 +99,12 @@ public class simbli_home_page
 
             team_click.click();
 
+            //div[contains(@class,'row justify-content-center')]//div[contains(@class,'col-lg-3 col-md-6 mb-4 aos-init aos-animate')]
+
+            //(//div[@class='team-member-card'])
+
+            List<WebElement> team_img = driver.findElements(By.xpath("(//div[@class='team-member-card'])"));
+
 
             if(team_text_v1.isDisplayed() && team_text_v2.isDisplayed() && team_text_v3.isDisplayed() && team_text_v4.isDisplayed())
             {
@@ -120,12 +126,22 @@ public class simbli_home_page
             {
                 System.out.println( img.getText());
             }
+
+            List<WebElement> team_imgg = driver.findElements(By.xpath("div[contains(@class,'row justify-content-center')]//div[contains(@class,'col-lg-3 col-md-6 mb-4 aos-init aos-animate')]"));
+
+
+            for(WebElement imgg : team_imgg)
+            {
+                System.out.println( imgg.getAccessibleName());
+            }
+
+
             Thread.sleep(3000);
             // ----------  ai agent section -------------
             if(about_agent_box.isDisplayed())
             {
                 System.out.println("team ai agent box is displaying");
-                Thread.sleep(3000);
+               // Thread.sleep(3000);
                 if (about_agent_text.isDisplayed() && about_rocket.isDisplayed() && about_explore_button.isDisplayed() && about_explore_button.isEnabled()) {
                     System.out.println("team ai agent box inside components displaying");
                 }
@@ -137,7 +153,15 @@ public class simbli_home_page
                 // ------------------------------------------
             }
 
+            driver.navigate().back();
 
+            Thread.sleep(1000);
+            driver.navigate().refresh();
+
+        }
+
+        public void contact()
+        {
 
         }
 
