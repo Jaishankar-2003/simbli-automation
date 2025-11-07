@@ -43,6 +43,7 @@ public class simbli_home_page
         @FindBy(xpath = "//button[normalize-space()='Explore Our Agents']") WebElement about_explore_button;
 
         // Team
+        @FindBy(xpath = "(//p[normalize-space()='Team'])[1]") WebElement team_click;
         @FindBy(xpath = "//h1[normalize-space()='Meet The Talented Team Who Make All This Happen']") WebElement team_text_v1;
         @FindBy(xpath = "//p[@class='team-philosophy']") WebElement team_text_v2;
         @FindBy(xpath = "//div[@class='team-section']") WebElement team_core_container;
@@ -96,37 +97,36 @@ public class simbli_home_page
         public void team() throws InterruptedException
         {
 
-
+            team_click.click();
 
 
             if(team_text_v1.isDisplayed() && team_text_v2.isDisplayed() && team_text_v3.isDisplayed() && team_text_v4.isDisplayed())
             {
                 System.out.println("Team section Text contents is displaying");
             }
-
+            Thread.sleep(3000);
             if(team_core_container.isDisplayed())
             {
                 System.out.println("Team section container is displaying");
 
                 for(int i = 0 ; i<= team_img.size() ; i++)
                 {
-                    System.out.println(i);
+                    System.out.println("Team image count : " +i);
                 }
 
             }
 
             for(WebElement img : team_img)
             {
-                System.out.println(img.getText());
+                System.out.println( img.getText());
             }
-
+            Thread.sleep(3000);
             // ----------  ai agent section -------------
             if(about_agent_box.isDisplayed())
             {
                 System.out.println("team ai agent box is displaying");
                 Thread.sleep(3000);
-                if(about_agent_text.isDisplayed() && about_rocket.isDisplayed() && about_explore_button.isDisplayed() && about_explore_button.isEnabled())
-                {
+                if (about_agent_text.isDisplayed() && about_rocket.isDisplayed() && about_explore_button.isDisplayed() && about_explore_button.isEnabled()) {
                     System.out.println("team ai agent box inside components displaying");
                 }
                 else
@@ -135,6 +135,9 @@ public class simbli_home_page
                 }
 
                 // ------------------------------------------
+            }
+
+
 
         }
 
