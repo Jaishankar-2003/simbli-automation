@@ -42,8 +42,21 @@ public class simbli_home_page
         @FindBy(xpath = "//img[@alt='roc']") WebElement about_rocket;
         @FindBy(xpath = "//button[normalize-space()='Explore Our Agents']") WebElement about_explore_button;
 
-        public void aboutpanel()
+        // Team
+        @FindBy(xpath = "//h1[normalize-space()='Meet The Talented Team Who Make All This Happen']") WebElement team_text_v1;
+        @FindBy(xpath = "//p[@class='team-philosophy']") WebElement team_text_v2;
+        @FindBy(xpath = "//div[@class='team-section']") WebElement team_core_container;
+        @FindBy(xpath = "//h2[normalize-space()='Our Core Team']") WebElement team_text_v3;
+        @FindBy(xpath = "//p[normalize-space()='Talented Minds Bringing Ideas to Life.']") WebElement team_text_v4;
+
+       // @FindBy(xpath = "(//div[@class='row justify-content-center'])[2]//div[@class='col-lg-3 col-md-6 mb-4 aos-init aos-animate']") WebElement
+       List<WebElement> team_img = driver.findElements(By.xpath("(//div[@class='team-member-card'])"));
+
+        public void aboutpanel() throws InterruptedException
         {
+
+            System.out.println("-------- About section ----------");
+
             System.out.println("about is Displayed : " + about.isDisplayed());
             System.out.println("about is Enable : " + about.isEnabled());
 
@@ -53,10 +66,11 @@ public class simbli_home_page
             {
                 System.out.println("simbli about visible successfully");
             }
-
+            // ----------  ai agent section -------------
             if(about_agent_box.isDisplayed())
             {
                 System.out.println("about ai agent box is displaying");
+                Thread.sleep(3000);
                 if(about_agent_text.isDisplayed() && about_rocket.isDisplayed() && about_explore_button.isDisplayed() && about_explore_button.isEnabled())
                 {
                     System.out.println("about ai agent box inside components displaying");
@@ -65,14 +79,62 @@ public class simbli_home_page
                 {
                     System.out.println("about ai agent box inside components not displaying");
                 }
+
+                // ------------------------------------------
             }
             else
             {
                 System.out.println(" about ai agent box is not displaying");
             }
 
+            driver.navigate().back();
+
+            Thread.sleep(2000);
+            driver.navigate().refresh();
+        }
+
+        public void team() throws InterruptedException
+        {
 
 
+
+
+            if(team_text_v1.isDisplayed() && team_text_v2.isDisplayed() && team_text_v3.isDisplayed() && team_text_v4.isDisplayed())
+            {
+                System.out.println("Team section Text contents is displaying");
+            }
+
+            if(team_core_container.isDisplayed())
+            {
+                System.out.println("Team section container is displaying");
+
+                for(int i = 0 ; i<= team_img.size() ; i++)
+                {
+                    System.out.println(i);
+                }
+
+            }
+
+            for(WebElement img : team_img)
+            {
+                System.out.println(img.getText());
+            }
+
+            // ----------  ai agent section -------------
+            if(about_agent_box.isDisplayed())
+            {
+                System.out.println("team ai agent box is displaying");
+                Thread.sleep(3000);
+                if(about_agent_text.isDisplayed() && about_rocket.isDisplayed() && about_explore_button.isDisplayed() && about_explore_button.isEnabled())
+                {
+                    System.out.println("team ai agent box inside components displaying");
+                }
+                else
+                {
+                    System.out.println("team ai agent box inside components not displaying");
+                }
+
+                // ------------------------------------------
 
         }
 

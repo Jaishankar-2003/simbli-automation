@@ -27,7 +27,7 @@ public class simbli_home_test
     }
 
     @Test
-    public void aboutt()
+    public void aboutt() throws InterruptedException
     {
         home.aboutpanel();
     }
