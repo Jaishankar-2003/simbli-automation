@@ -31,6 +31,11 @@ public class simbli_home_test
     {
         home.aboutpanel();
     }
+    @Test
+    public void teamm() throws InterruptedException
+    {
+        home.team();
+    }
 
 
 
