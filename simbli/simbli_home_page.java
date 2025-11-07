@@ -44,8 +44,8 @@ public class simbli_home_page
 
         public void aboutpanel()
         {
-            System.out.println("about is Displayed" + about.isDisplayed());
-            System.out.println("about is Enable" + about.isEnabled());
+            System.out.println("about is Displayed : " + about.isDisplayed());
+            System.out.println("about is Enable : " + about.isEnabled());
 
             about.click();
 
